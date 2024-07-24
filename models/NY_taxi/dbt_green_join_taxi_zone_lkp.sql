@@ -43,14 +43,12 @@ with
                 else 'Others '
             end as payment_type
         from {{ source("taxy_nyc", "green_taxi") }}  as gt
-        -- inner join tzl as lkp on gt.putlocationid = lkp.locationid 
         inner join {{ ref("taxi_lkp_zone") }} as lkp on gt.putlocationid = lkp.id
 
     ),
     get_droff_location as (
         select gpl.*, lkp.t_zone as drop_location
         from get_pick_location  as gpl
-        -- inner join tzl as lkp on gpl.dolocationid = lkp.locationid 
         inner join {{ ref("taxi_lkp_zone") }} as lkp on gpl.dolocationid = lkp.id
         where payment_type != 'Others'
     )
