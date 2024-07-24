@@ -1,0 +1,8 @@
+version:  2
+
+sources:
+  - name: Ny_payroll
+    database: dbt
+    schema: public
+    tables:
+      - name: ny_city_payroll
