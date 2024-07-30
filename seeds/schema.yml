@@ -4,19 +4,19 @@ seeds:
   - name: HDAS
     description: "Historical Driver Application Status"
     columns:
-      - name : App_No
+      - name: App_No
         tests:
-            - unique
-            - not_null
+          - unique
+          - not_null
 
-      - name : Type
+      - name: Type
         tests:
-            - not_null
-            - accepted_values :
-                values: ['PDR', 'CDR']
+          - not_null
+          - accepted_values:
+              values: ["PDR", "CDR"]
 
-      - name : Drug_Test
+      - name: Drug_Test
         tests:
-            - not_null
-            - accepted_values:
-                values: ['Not Applicable', 'Complete', 'Needed']
+          - not_null
+          - accepted_values:
+              values: ["Not Applicable", "Complete", "Needed"]
